@@ -20,16 +20,12 @@ const slides = [
 
 const arrowLeft = document.createElement("img");
 arrowLeft.src = "./assets/images/arrow_left.png";
-arrowLeft.classList.add("arrow");
+arrowLeft.classList.add("arrow", "arrow_left");
 arrowLeft.classList.add("arrow_left");
 
 const arrowRight = document.createElement("img");
 arrowRight.src = "./assets/images/arrow_right.png";
-arrowRight.classList.add("arrow");
-arrowRight.classList.add("arrow_right");
-
-console.log(arrowLeft.className);
-console.log(arrowRight.className);
+arrowRight.classList.add("arrow", "arrow_right");
 
 const banner = document.querySelector("#banner");
 banner.appendChild(arrowLeft);
@@ -58,15 +54,7 @@ arrowLeft.addEventListener('click', function(){
 		positionSlide = slides.length - 1;
 	}
 	//alert("click sur la flèche gauche");
-	bannerIMG.src = slides[positionSlide].image;
-	bannerTXT.innerHTML = slides[positionSlide].tagLine;
-	for (let i=0 ; i<dot.length; i++) {
-		if (i === positionSlide) {
-			dot[i].classList.add('dot_selected');
-		} else {
-			dot[i].classList.remove('dot_selected');
-		}
-	}
+	updateSlide();
 });
 
 arrowRight.addEventListener('click', function(){
@@ -75,6 +63,10 @@ arrowRight.addEventListener('click', function(){
 		positionSlide = 0;
 	}
 	//alert("click sur la flèche droite");
+	updateSlide();
+});
+
+function updateSlide() {
 	bannerIMG.src = slides[positionSlide].image;
 	bannerTXT.innerHTML = slides[positionSlide].tagLine;
 	for (let i=0 ; i<dot.length; i++) {
@@ -84,6 +76,6 @@ arrowRight.addEventListener('click', function(){
 			dot[i].classList.remove('dot_selected');
 		}
 	}
-});
+}
 
 
