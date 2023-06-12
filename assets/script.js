@@ -21,7 +21,6 @@ const slides = [
 const arrowLeft = document.createElement("img");
 arrowLeft.src = "./assets/images/arrow_left.png";
 arrowLeft.classList.add("arrow", "arrow_left");
-arrowLeft.classList.add("arrow_left");
 
 const arrowRight = document.createElement("img");
 arrowRight.src = "./assets/images/arrow_right.png";
